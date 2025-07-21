@@ -1,0 +1,110 @@
+✅ 1. Lexical Analyzer to Recognize Tokens
+
+#include <stdio.h>
+
+int main() {
+    char ch;
+    printf("Enter a character: ");
+    scanf("%c", &ch);
+
+    if ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z'))
+        printf("It's an Alphabet (Identifier)\n");
+    else if (ch >= '0' && ch <= '9')
+        printf("It's a Digit\n");
+    else
+        printf("It's a Symbol\n");
+
+    return 0;
+}
+
+
+✅ 2. Identify Whether Line is a Comment
+
+#include <stdio.h>
+
+int main() {
+    char line[100];
+    printf("Enter a line: ");
+    fgets(line, sizeof(line), stdin);
+
+    if (line[0] == '/' && line[1] == '/')
+        printf("It's a Single Line Comment\n");
+    else if (line[0] == '/' && line[1] == '*')
+        printf("It's a Multi Line Comment\n");
+    else
+        printf("Not a Comment\n");
+
+    return 0;
+}
+
+
+
+✅ 3. Recognize Strings under a*
+
+#include <stdio.h>
+
+int main() {
+    char str[100];
+    printf("Enter a string: ");
+    scanf("%s", str);
+
+    int i = 0, flag = 1;
+    while (str[i]) {
+        if (str[i] != 'a') {
+            flag = 0;
+            break;
+        }
+        i++;
+    }
+
+    if (flag)
+        printf("It belongs to a*\n");
+    else
+        printf("It does not belong to a*\n");
+
+    return 0;
+}
+
+
+✅ 4. Valid Identifier Check
+
+#include <stdio.h>
+#include <ctype.h>
+
+int main() {
+    char str[100];
+    printf("Enter identifier: ");
+    scanf("%s", str);
+
+    if (isalpha(str[0]) || str[0] == '_')
+        printf("Valid Identifier\n");
+    else
+        printf("Invalid Identifier\n");
+
+    return 0;
+}
+
+
+✅ 5. Calculate FIRST of CFG
+
+#include <stdio.h>
+
+int main() {
+    int n, i;
+    char prod[10][10];
+    printf("Enter number of productions: ");
+    scanf("%d", &n);
+
+    printf("Enter productions (e.g. S=aB):\n");
+    for (i = 0; i < n; i++) {
+        scanf("%s", prod[i]);
+    }
+
+    printf("\nFIRST of Non-Terminals:\n");
+    for (i = 0; i < n; i++) {
+        printf("FIRST(%c) = %c\n", prod[i][0], prod[i][2]);
+    }
+
+    return 0;
+}
+
